@@ -7,11 +7,11 @@
 
 // / Step 1 - Define the required variables used to track the state of the game
 
-// let board (){} 
+// let board () {} 
 
 // let turn () {}
 
-winner
+// let winner () {}
 
 
 
@@ -37,15 +37,15 @@ init()
 
 function init(){
 
-board = new Array (9).fill(null)
+    board = new Array (9).fill(null)
 console.log(board)
 
 // 3d) Set the `turn` to `1` - which will represent player X.
-turn = 1
+    turn = 1
 
  // 3e) Set the `winner` to `null`.
-winner = null
+    winner = null
 
  // 3f) Call a function called `render` at the end of the `init` function
-render()
+    render()
 }
