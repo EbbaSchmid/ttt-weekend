@@ -62,7 +62,6 @@ function render(){
     } else {
         squareEls[idx].textContent = " "
     }
-
 })
 
 
