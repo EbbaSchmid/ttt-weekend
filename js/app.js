@@ -7,7 +7,11 @@
 
 // / Step 1 - Define the required variables used to track the state of the game
 
-let board, turn, winner
+// let board (){} 
+
+// let turn () {}
+
+winner
 
 
 
@@ -27,3 +31,21 @@ console.log(messageEl)
 
 /*----------- Functions --------------------------------*/
 
+
+// Step 3 - Upon loading, the game state should be initialized, and a function should be called to render this game state
+init()
+
+function init(){
+
+board = new Array (9).fill(null)
+console.log(board)
+
+// 3d) Set the `turn` to `1` - which will represent player X.
+turn = 1
+
+ // 3e) Set the `winner` to `null`.
+winner = null
+
+ // 3f) Call a function called `render` at the end of the `init` function
+render()
+}
