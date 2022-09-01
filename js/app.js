@@ -38,7 +38,6 @@ init()
 function init(){
 
     board = new Array (9).fill(null)
-console.log(board)
 
 // 3d) Set the `turn` to `1` - which will represent player X.
     turn = 1
@@ -48,4 +47,17 @@ console.log(board)
 
  // 3f) Call a function called `render` at the end of the `init` function
     render()
+}
+
+// 4a) Create a function called `render`.
+function render(){
+// 4b) Loop over `board` and for each element:
+    board.forEach(function (square, idx){
+    // check if square is 1, -1 or null
+    //if 1 set element at ind squareEls to X
+    //if -1 set element at ind squareEls to 0
+    //if null set element at ind squareEls to empty
+})
+
+
 }
