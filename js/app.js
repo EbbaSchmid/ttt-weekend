@@ -53,6 +53,14 @@ function init(){
 function render(){
 // 4b) Loop over `board` and for each element:
     board.forEach(function (square, idx){
+    if (square === 1){
+    display = "x"
+    } else if (square === -1){
+        display = "o"
+    } else (
+        squareEls[idx]
+    )
+    
     // check if square is 1, -1 or null
     //if 1 set element at ind squareEls to X
     //if -1 set element at ind squareEls to 0
