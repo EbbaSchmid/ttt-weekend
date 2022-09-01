@@ -37,7 +37,7 @@ init()
 
 function init(){
 
-    board = new Array (9).fill(null)
+    board = [null, null, null, null, null, null, null, null, null]
 
 // 3d) Set the `turn` to `1` - which will represent player X.
     turn = 1
@@ -52,19 +52,17 @@ function init(){
 // 4a) Create a function called `render`.
 function render(){
 // 4b) Loop over `board` and for each element:
-    board.forEach(function (square, idx){
+    board.forEach(function (square, idx) {
     if (square === 1){
-    display = "x"
-    } else if (square === -1){
-        display = "o"
-    } else (
-        squareEls[idx]
-    )
-    
-    // check if square is 1, -1 or null
+        squareEls[idx].textContent = "X"
     //if 1 set element at ind squareEls to X
+    } else if (square === -1){
+        squareEls[idx].textContent = "O"
     //if -1 set element at ind squareEls to 0
-    //if null set element at ind squareEls to empty
+    } else {
+        squareEls[idx].textContent = " "
+    }
+
 })
 
 
