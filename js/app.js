@@ -64,5 +64,18 @@ function render(){
     }
 })
 
+if (winner === null)
+    if (turn === 1) {
+        messageEl.textcontent = "It's player one's turn"
+    } else {
+        messageEl.textcontent = "It's player two's turn"
+    } else if (winner === "T") {
+        messageEl.textcontent = "It's a tie!"
+    } else {
+        messageEl.textcontent = "You've won!"
+    }
+
+
+
 
 }
