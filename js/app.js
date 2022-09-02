@@ -43,7 +43,7 @@ function init(){
     turn = 1
 
  // 3e) Set the `winner` to `null`.
-    winner = null
+    winner = 1
 
  // 3f) Call a function called `render` at the end of the `init` function
     render()
@@ -64,18 +64,18 @@ function render(){
     }
 })
 
-if (winner === null)
+if (winner === null) {
     if (turn === 1) {
-        messageEl.textcontent = "It's player one's turn"
+        messageEl.textContent = "It's player one's turn"
     } else {
-        messageEl.textcontent = "It's player two's turn"
-    } else if (winner === "T") {
-        messageEl.textcontent = "It's a tie!"
+        messageEl.textContent = "It's player two's turn"
+    }} else if (winner === "T") {
+        messageEl.textContent = "It's a tie!"
+    } else if (winner === 1) {
+        messageEl.textContent = "Player 1 has won!"
     } else {
-        messageEl.textcontent = "You've won!"
+        messageEl.textContent = "Player 2 has won!"
     }
-
-
 
 
 }
