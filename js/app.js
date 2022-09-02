@@ -29,8 +29,12 @@ console.log(squareEls)
 const messageEl = document.querySelector("#message")
 console.log(messageEl)
 
+const boardEl = document.querySelector(".board")
+console.log(boardEl)
+
 /*-------------- Event Listeners -----------------------------*/
 
+.boardEl.addEventListener ("click", handleClick)
 
 
 /*----------- Functions --------------------------------*/
@@ -81,5 +85,9 @@ if (winner === null) {
         messageEl.textContent = "Player 2 has won!"
     }
 
+    // step 6a
+    function handleClick(evt) {
+
+    }
 
 }
