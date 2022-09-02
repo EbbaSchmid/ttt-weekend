@@ -65,6 +65,9 @@ function handleClick(evt) {
     if (board[sqIdx]) {
     return 
     }
+    // step 6e
+    board[sqIdx] = turn 
+    turn = turn * -1
 }
 
 // 4a) Create a function called `render`.
