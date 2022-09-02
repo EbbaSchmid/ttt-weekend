@@ -32,10 +32,12 @@ console.log(messageEl)
 const boardEl = document.querySelector(".board")
 console.log(boardEl)
 
+const resetBtnEl = document.querySelector("#reset-button")
+
 /*-------------- Event Listeners -----------------------------*/
 
 boardEl.addEventListener("click", handleClick)
-
+resetBtnEl.addEventListener('click', init)
 
 /*----------- Functions --------------------------------*/
 
@@ -64,7 +66,7 @@ function handleClick(evt) {
         console.log("goodbye")
         return
     }
-    if (winner === 1 || winner === -1) {
+    if (winner) {
     return 
     }
     if (board[sqIdx]) {
