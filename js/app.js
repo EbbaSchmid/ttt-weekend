@@ -70,20 +70,25 @@ function handleClick(evt) {
     turn = turn * -1
 
     // step 6g/h
-    winner = getWinner()
+    // winner = getWinner()
     render()
 }
 
-// step 7a
+// step 7a/7b1
 function getWinner(){
-    // step 7b1
-    winningCombos.forEach(function (combo) {
+    let bestCombo = []
+    winningCombos.forEach(function(combo){
         // combo will look like [0,1,2]
-        let comboValue = 0
-        combo.forEach(function(position){
-            comboValue += board[position]
-        })
+        // console.log (combo)
+        let comboValue = board[combo[0]]+board[combo[1]+board[2]]
+
+        // combo.forEach(function(position){
+        //     comboValue += board[position]
+        //     // console.log(position)
+        // })
+        bestCombo.push(Math.abs(comboValue))
     })
+    Math.abs(bestCombo)
 }
 
 // 4a) Create a function called `render`.
