@@ -34,7 +34,7 @@ console.log(boardEl)
 
 /*-------------- Event Listeners -----------------------------*/
 
-.boardEl.addEventListener ("click", handleClick)
+boardEl.addEventListener("click", handleClick)
 
 
 /*----------- Functions --------------------------------*/
@@ -57,6 +57,13 @@ function init(){
     render()
 }
 
+function handleClick(evt) {
+    const sqIdx = parseInt(evt.target.id[2])
+
+    console.log (sqIdx)
+    }
+
+
 // 4a) Create a function called `render`.
 function render(){
 // 4b) Loop over `board` and for each element:
@@ -72,6 +79,8 @@ function render(){
     }
 })
 
+
+
 if (winner === null) {
     if (turn === 1) {
         messageEl.textContent = "It's player one's turn"
@@ -85,9 +94,5 @@ if (winner === null) {
         messageEl.textContent = "Player 2 has won!"
     }
 
-    // step 6a
-    function handleClick(evt) {
-
-    }
 
 }
