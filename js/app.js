@@ -74,6 +74,12 @@ function handleClick(evt) {
     render()
 }
 
+// step 7a
+function getWinner(){
+    // step 7b1
+
+}
+
 // 4a) Create a function called `render`.
 function render(){
 // 4b) Loop over `board` and for each element:
