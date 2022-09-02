@@ -93,7 +93,7 @@ function getWinner(){
     })
     if (winnersCombo === true) {
         return turn * -1
-    } else if (board.some(function(value){return value === null})){
+    } else if (!board.some(function(value){return value === null})){
         return "T"
     }
 }
@@ -127,6 +127,5 @@ if (winner === null) {
     } else {
         messageEl.textContent = "Player 2 has won!"
     }
-
-
+return null
 }
