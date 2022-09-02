@@ -77,7 +77,13 @@ function handleClick(evt) {
 // step 7a
 function getWinner(){
     // step 7b1
-
+    winningCombos.forEach(function (combo) {
+        // combo will look like [0,1,2]
+        let comboValue = 0
+        combo.forEach(function(position){
+            comboValue += board[position]
+        })
+    })
 }
 
 // 4a) Create a function called `render`.
