@@ -88,7 +88,9 @@ function getWinner(){
         // })
         bestCombo.push(Math.abs(comboValue))
     })
-    Math.abs(bestCombo)
+    let winnersCombo = bestCombo.some(function(value){
+        return value === 3
+    })
 }
 
 // 4a) Create a function called `render`.
