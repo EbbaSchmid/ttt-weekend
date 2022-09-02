@@ -1,6 +1,6 @@
 /*---------------- Constants --------------------------*/
 
-let winningCombinations = [
+let winningCombos = [
     [0, 1, 2],[3, 4, 5],[6, 7, 8],
     [0, 3, 6],[1, 4, 7],[2, 5, 8],
     [0, 4, 8],[2, 4, 6]
@@ -59,18 +59,24 @@ function init(){
 
 function handleClick(evt) {
     const sqIdx = parseInt(evt.target.id[2])
+    console.log(sqIdx)
+    if (!sqIdx) {
+        console.log("goodbye")
+        return
+    }
     if (winner === 1 || winner === -1) {
     return 
     }
     if (board[sqIdx]) {
     return 
     }
+    console.log("hello")
     // step 6e/f
     board[sqIdx] = turn 
     turn = turn * -1
 
     // step 6g/h
-    // winner = getWinner()
+    winner = getWinner()
     render()
 }
 
@@ -78,19 +84,18 @@ function handleClick(evt) {
 function getWinner(){
     let bestCombo = []
     winningCombos.forEach(function(combo){
-        // combo will look like [0,1,2]
-        // console.log (combo)
-        let comboValue = board[combo[0]]+board[combo[1]+board[2]]
 
-        // combo.forEach(function(position){
-        //     comboValue += board[position]
-        //     // console.log(position)
-        // })
+        let comboValue = board[combo[0]]+board[combo[1]]+board[combo[2]]
         bestCombo.push(Math.abs(comboValue))
     })
     let winnersCombo = bestCombo.some(function(value){
         return value === 3
     })
+    if (winnersCombo === true) {
+        return turn * -1
+    } else if (board.some(function(value){return value === null})){
+        return "T"
+    }
 }
 
 // 4a) Create a function called `render`.
@@ -108,7 +113,7 @@ function render(){
     }
 })
 
-
+console.log(winner)
 
 if (winner === null) {
     if (turn === 1) {
