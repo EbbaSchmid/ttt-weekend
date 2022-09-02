@@ -65,9 +65,13 @@ function handleClick(evt) {
     if (board[sqIdx]) {
     return 
     }
-    // step 6e
+    // step 6e/f
     board[sqIdx] = turn 
     turn = turn * -1
+
+    // step 6g/h
+    winner = getWinner()
+    render()
 }
 
 // 4a) Create a function called `render`.
