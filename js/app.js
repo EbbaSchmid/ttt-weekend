@@ -60,7 +60,7 @@ function init(){
 function handleClick(evt) {
     const sqIdx = parseInt(evt.target.id[2])
     console.log(sqIdx)
-    if (!sqIdx) {
+    if (!sqIdx && sqIdx !== 0) {
         console.log("goodbye")
         return
     }
