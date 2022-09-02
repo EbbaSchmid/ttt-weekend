@@ -59,10 +59,13 @@ function init(){
 
 function handleClick(evt) {
     const sqIdx = parseInt(evt.target.id[2])
-
-    console.log (sqIdx)
+    if (winner === 1 || winner === -1) {
+    return 
     }
-
+    if (board[sqIdx]) {
+    return 
+    }
+}
 
 // 4a) Create a function called `render`.
 function render(){
