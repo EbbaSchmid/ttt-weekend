@@ -109,9 +109,11 @@ function getWinner(){
     winningCombos.forEach(function(combo){
 // winningCombos is an array of an array. looping through all arrays (inner arrays). will only win if combo = 3.
         let comboValue = board[combo[0]]+board[combo[1]]+board[combo[2]]
-        // board - look into the board array and tell me about is in that sq to see if 
+        // needs better explaination - is the 0,1,2 adding and referencing the number placement[idx] to see if it equals 3 to create a winner?
         bestCombo.push(Math.abs(comboValue))
     })
+    // The Math.abs() function returns the absolute value of a number. That is, it returns x if x is positive or zero, and the negation of x if x is negative. Displays the distance from zero.
+    // needs better explaination 
     let winnersCombo = bestCombo.some(function(value){
         return value === 3
     })
@@ -119,6 +121,7 @@ function getWinner(){
         return turn * -1
     } else if (!board.some(function(value){return value === null})){
         return "T"
+        // needs better explaination 
     }
     return null
 }
