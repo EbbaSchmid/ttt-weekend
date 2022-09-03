@@ -111,6 +111,7 @@ function getWinner(){
     } else if (!board.some(function(value){return value === null})){
         return "T"
     }
+    return null
 }
 
 // 4a) Create a function called `render`.
@@ -133,7 +134,7 @@ function render(){
         squareEls[idx].textContent = " "
     }
 })
-// after it renders (after any interaction/click on board) it updates to see if there is a winner. if not, it continues through if/else statements 
+// after it renders (after any interaction/click on board) it updates to see if there is a winner has been set. if not, it continues through if/else statements and display message of whos turn or whos won
 
 console.log(winner)
 
@@ -142,12 +143,13 @@ if (winner === null) {
         messageEl.textContent = "It's player one's turn"
     } else {
         messageEl.textContent = "It's player two's turn"
-    }} else if (winner === "T") {
+    } 
+    } else if (winner === "T") {
         messageEl.textContent = "It's a tie!"
     } else if (winner === 1) {
         messageEl.textContent = "Player 1 has won!"
-    } else {
+    } else if (winner === -1) {
         messageEl.textContent = "Player 2 has won!"
     }
-return null
+
 }
