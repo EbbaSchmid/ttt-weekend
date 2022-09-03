@@ -96,17 +96,20 @@ function handleClick(evt) {
     // depending on who clicked a square, will result it other players turn
     turn = turn * -1 
     winner = getWinner()
+    // need to call getWinner function to check if there is a winner. if there is a winner, will return truey value and state who won. if no winner, function will loop again. 
+    // everytime render is called, html is changing and updating. 
     render()
 }
 // when the line of code below runs, the turn will update by multiplying by -1. In the initialization function, turn is equal to 1 which represents X (X goes first). When a user clicks on the next square, this handleClick function will run, and update the value of turn (by multiplying by negative one) which would update turn to -1 (0). The line below is how the player switches from X to O. 
 
 
-// step 7a/7b1
+// step 7a/7b1 - how to figure out if there is a winner
 function getWinner(){
     let bestCombo = []
     winningCombos.forEach(function(combo){
-
+// winningCombos is an array of an array. looping through all arrays (inner arrays). will only win if combo = 3.
         let comboValue = board[combo[0]]+board[combo[1]]+board[combo[2]]
+        // board - look into the board array and tell me about is in that sq to see if 
         bestCombo.push(Math.abs(comboValue))
     })
     let winnersCombo = bestCombo.some(function(value){
