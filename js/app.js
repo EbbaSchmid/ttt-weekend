@@ -39,7 +39,10 @@ const resetBtnEl = document.querySelector("#reset-button")
 /*-------------- Event Listeners -----------------------------*/
 
 boardEl.addEventListener("click", handleClick)
-resetBtnEl.addEventListener('click', init)
+// event listeners have to be added to the big picture/element and not squares since sqs are a node list(b/c sqs are added in the html and not JS). bubbling = adding event listener to top level element, affects/accesses individual elements/child elements nested inside of parent element (inner html objects). parent = board || child = sq divs
+resetBtnEl.addEventListener("click", init)
+// reset button element is the big picture, when function/action of "click" is done then init happens. You invoke init by clicking the reset button element. 
+// element.addEventListenter(event, function)
 
 /*----------- Functions --------------------------------*/
 
@@ -68,18 +71,19 @@ function init(){
 // Step 6A-6H within the handleClick function 
 // Step 6d: this step we're only creating return statements for two events: One is if the winner value is 1(x) or -1(o), we will return nothing. The other event is if there is a value in the sqidx (other player can't access the square and override the value) ex. [1, null, null, null, null, null, null, null, null]
 // we're setting this up so that in these two events nothing will happen
-// handleClick
+// handleClick - when click, it grads sq idx, which contains div's ID's - it manipulates string to number which represents the idx number [2] (sq0 = 0) represents both the sq ID in the html and the position within the board variable. see parseInt
 function handleClick(evt) {
     console.log(evt.target)
-    // Convert the ID sq string into a usable number
+    // Convert the ID sq string into a usable number by using parseInt
     let sqIdx = parseInt(evt.target.id[2])
     console.log(sqIdx)
     if (isNaN(sqIdx)) {
-    // if a user clicks on something BESIDES a board square (but within the board section/space) we don't want that to affect the game. So we return, which exits this function 
+    // if a user clicks on something BESIDES a board square (but within the board section/space) we don't want that to affect the game. So when we return, it moves this function forward to next if/else
         return 
     }
     if (winner) {
         return
+        // since a winner is declared, game has stopped 
     }
     if (board[sqIdx]) {
         return 
@@ -89,11 +93,13 @@ function handleClick(evt) {
       // that ID from the div should correspond with the appropriate element in the board array 
     
     board[sqIdx] = turn 
-    // when the line of code below runs, the turn will update by multiplying by -1. In the initialization function, turn is equal to 1 which represents X (X goes first). When a user clicks on the next square, this handleClick function will run, and update the value of turn (by multiplying by negative one) which would update turn to -1 (0). The line below is how the player switches from X to O. 
+    // depending on who clicked a square, will result it other players turn
     turn = turn * -1 
     winner = getWinner()
     render()
 }
+// when the line of code below runs, the turn will update by multiplying by -1. In the initialization function, turn is equal to 1 which represents X (X goes first). When a user clicks on the next square, this handleClick function will run, and update the value of turn (by multiplying by negative one) which would update turn to -1 (0). The line below is how the player switches from X to O. 
+
 
 // step 7a/7b1
 function getWinner(){
@@ -151,5 +157,4 @@ if (winner === null) {
     } else if (winner === -1) {
         messageEl.textContent = "Player 2 has won!"
     }
-
 }
